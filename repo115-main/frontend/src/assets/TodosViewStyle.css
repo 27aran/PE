@@ -1,0 +1,434 @@
+.page {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 20px;
+    font-family: Arial, sans-serif;
+}
+
+.controls {
+    display: flex;
+    gap: 15px;
+    align-items: center;
+    margin: 30px 0;
+    flex-wrap: wrap;
+}
+
+.search {
+    flex: 1;
+    min-width: 200px;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 16px;
+}
+
+.filter-dropdown {
+    position: relative;
+}
+
+.filter-btn {
+    padding: 15px 20px;
+    background: #6c757d;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.2s;
+}
+
+.filter-btn:hover {
+    background: #545b62;
+}
+
+.dropdown-menu {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background: white;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    z-index: 100;
+    min-width: 200px;
+}
+
+.dropdown-menu div {
+    padding: 10px 15px;
+    cursor: pointer;
+    border-bottom: 1px solid #eee;
+    transition: background-color 0.2s;
+}
+
+.dropdown-menu div:hover {
+    background: #f8f9fa;
+}
+
+.dropdown-menu div:last-child {
+    border-bottom: none;
+}
+
+.create-btn {
+    padding: 15px 20px;
+    background: #007bff;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.2s;
+}
+
+.create-btn:hover {
+    background: #0056b3;
+}
+
+/* Modal Styles */
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+.modal {
+    background: white;
+    padding: 30px;
+    border-radius: 8px;
+    width: 90%;
+    max-width: 600px;
+    max-height: 90vh;
+    overflow-y: auto;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.modal h2 {
+    margin-top: 0;
+    margin-bottom: 20px;
+    color: #333;
+    font-size: 1.5rem;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: 500;
+    color: #333;
+}
+
+.form-input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #cfcfcf;
+    border-radius: 4px;
+    font-family: Arial, serif;
+    font-size: 16px;
+    box-sizing: border-box;
+    transition: border-color 0.2s;
+}
+
+.form-input:focus {
+    outline: none;
+    border-color: #006aff;
+}
+
+form-input::placeholder{
+    font-size: 15px;
+}
+
+textarea.form-input {
+    resize: vertical;
+    min-height: 80px;
+}
+
+.assignee-selection {
+    max-height: 200px;
+    overflow-y: auto;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    padding: 10px;
+    background: #f8f9fa;
+}
+
+.assignee-option {
+    padding: 10px;
+    border: 1px solid #eee;
+    border-radius: 4px;
+    margin-bottom: 5px;
+    cursor: pointer;
+    transition: all 0.2s;
+    background: white;
+}
+
+.assignee-option:hover {
+    background: #e9ecef;
+}
+
+.assignee-option.selected {
+    background: #007bff;
+    color: white;
+    border-color: #007bff;
+}
+
+.assignee-name {
+    display: block;
+    font-weight: 500;
+}
+
+.assignee-email {
+    display: block;
+    font-size: 12px;
+    opacity: 0.8;
+}
+
+.assignee-option.selected .assignee-email {
+    opacity: 0.9;
+}
+
+.no-assignees {
+    text-align: center;
+    color: #666;
+    padding: 20px;
+    font-style: italic;
+}
+
+.modal-actions {
+    display: flex;
+    gap: 10px;
+    justify-content: flex-end;
+    margin-top: 25px;
+}
+
+.btn-cancel {
+    padding: 10px 20px;
+    background: #6c757d;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.btn-cancel:hover {
+    background: #545b62;
+}
+
+.btn-submit {
+    padding: 10px 20px;
+    background: #28a745;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.btn-submit:hover:not(:disabled) {
+    background: #218838;
+}
+
+.btn-submit:disabled {
+    background: #6c757d;
+    cursor: not-allowed;
+}
+
+/* Todo List Styles */
+.todo-list {
+    margin-top: 30px;
+}
+
+.loading, .no-todos {
+    text-align: center;
+    padding: 40px;
+    color: #666;
+    font-size: 1.1rem;
+}
+
+.todo-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    margin-bottom: 15px;
+    background: white;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.todo-item.high-priority {
+    border-left: 4px solid #dc3545;
+}
+
+.todo-item.medium-priority {
+    border-left: 4px solid #ffc107;
+}
+
+.todo-item.low-priority{
+    border-left: 4px solid #28a745;
+}
+
+.todo-item.completed {
+    opacity: 0.7;
+    background: #f8f9fa;
+}
+
+.todo-content {
+    flex: 1;
+}
+
+.todo-content h3 {
+    margin: 0 0 10px 0;
+    color: #333;
+    font-size: 1.2rem;
+}
+
+.todo-content p {
+    margin: 0 0 15px 0;
+    color: #666;
+    line-height: 1.5;
+}
+
+.todo-meta {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.priority {
+    padding: 4px 8px;
+    border-radius: 4px;
+    font-size: 12px;
+    font-weight: bold;
+    display: inline-block;
+    width: fit-content;
+}
+
+.priority.high {
+    background: #dc3545;
+    color: white;
+}
+
+.priority.medium {
+    background: #ffc107;
+    color: black;
+}
+
+.priority.low {
+    background: #28a745;
+    color: white;
+}
+
+.due-date, .status, .assignees, .created-date {
+    font-size: 14px;
+    color: #666;
+}
+
+.status {
+    font-weight: bold;
+}
+
+.todo-actions {
+    display: flex;
+    gap: 10px;
+    flex-direction: column;
+}
+
+.todo-actions button {
+    padding: 8px 15px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    background: white;
+    cursor: pointer;
+    font-size: 14px;
+    white-space: nowrap;
+    transition: all 0.2s;
+}
+
+.todo-actions button:hover:not(:disabled) {
+    background: #f8f9fa;
+}
+
+.todo-actions button:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+}
+
+.todo-actions button.delete {
+    color: #dc3545;
+    border-color: #dc3545;
+}
+
+.todo-actions button.delete:hover {
+    background: #dc3545;
+    color: white;
+}
+
+/* NEUE Styles für Completed Section */
+.completed-section {
+    margin-top: 30px;
+    border-top: 1px solid #ccc;
+    padding-top: 20px;
+}
+
+.toggle-completed-btn {
+    width: 100%;
+    padding: 10px 15px;
+    background: #f0f0f0;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: bold;
+    color: #333;
+    text-align: left;
+    transition: background-color 0.2s;
+}
+
+.toggle-completed-btn:hover {
+    background: #e9e9e9;
+}
+
+.completed-todos-list {
+    margin-top: 15px;
+}
+/*responsive design*/
+@media (max-width: 768px) {
+    .controls {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .search {
+        min-width: auto;
+    }
+
+    .filter-dropdown {
+        align-self: flex-start;
+    }
+
+    .todo-item {
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    .todo-actions {
+        flex-direction: row;
+        align-self: flex-end;
+    }
+
+    .modal {
+        margin: 20px;
+        width: calc(100% - 40px);
+    }
+}
