@@ -36,7 +36,7 @@ public class AssigneeService {
     }
 
     // standard "Dot-Atom" structure for the local part to ban consecutive/start/end
-    // dots
+    // dots; restrict domain to uni-stuttgart.de (including subdomains like iste.uni-stuttgart.de)
     private static final Pattern EMAIL_PATTERN = Pattern.compile(
             "^[A-Za-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\\.[A-Za-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-zA-Z0-9-]+\\.)*uni-stuttgart\\.de$",
             Pattern.CASE_INSENSITIVE);
